@@ -9,9 +9,11 @@ if(window_size>=step_size)
     % Get sinewaves samples 
     sine_waves_values=sine_waves_samples( f , Fs , t );
     [m,n]=size(sine_waves_values);
+    % Create TimeStamp For Csv File
+    CsvStamp=create_timestamp(sine_waves_values);
     % Print Samples to CSV file
-    % in order to be used as input at streaminsight app
-    csvwrite('input.csv',sine_waves_values(1:m,:)') 
+    % in order to be used as input at streaminsight app with timestamp
+    create_csv_input(CsvStamp , sine_waves_values);
     % Calculate Correlation factor between ALL vectors
     % and store result to a 4x4 array
     Correlation_Factor_Full=corr(sine_waves_values');
