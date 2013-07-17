@@ -4,7 +4,7 @@ Fs = 1600;                          % Sampling Frequency(>5*f)
 f  = 300;                           % Frequency   
 t =(0 : 1 : 999);                   % Time Samples
 window_size = 100;                  % Window Size
-step_size = 50;                    % Step Size
+step_size = 100;                    % Step Size
 if(window_size>=step_size)
     % Get sinewaves samples 
     sine_waves_values=sine_waves_samples( f , Fs , t );
@@ -25,6 +25,7 @@ if(window_size>=step_size)
     % in every line of csv there is the correlation factor between every 
     % input sinewaves values for the current window
     print_output_to_csv(Correlation_Factor_Windows_Hops);
+    compare_results(m);
 else
     fprintf('Windows Size must be >= Step Size\n');
 end    
